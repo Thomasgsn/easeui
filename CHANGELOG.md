@@ -14,6 +14,10 @@ changes to a component's API are marked **Breaking**.
 
 - `CHANGELOG.md`, branch and release rules in `CONTRIBUTING.md`, a pull request template, and issue templates for bugs and component requests.
 
+### Changed
+
+- Stepper: every step now takes an equal share of the row, the last one included, so labels stay centered under their circles.
+
 ## [0.1.0] - 2026-10-02
 
 The first public release: 53 components across two categories, a docs site, a

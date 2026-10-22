@@ -32,7 +32,7 @@ export function Stepper({ steps, current, onStepClick, className }: StepperProps
         const Tag = clickable ? "button" : "div";
 
         return (
-          <li key={step.label} className={cn("relative flex min-w-0 flex-col items-center", index < steps.length - 1 ? "flex-1" : "")}>
+          <li key={step.label} className="relative flex min-w-0 flex-1 flex-col items-center">
             {index < steps.length - 1 ? (
               // The line to the next step. It sits behind the circles and fills from the left.
               <span aria-hidden="true" className="absolute left-[calc(50%+18px)] right-[calc(-50%+18px)] top-4 h-0.5 overflow-hidden rounded-full bg-foreground/10">
