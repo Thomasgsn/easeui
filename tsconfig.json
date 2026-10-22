@@ -39,6 +39,7 @@
   "exclude": [
     "examples/shadcn-vite-install",
     "mcp",
-    "node_modules"
+    "node_modules",
+    "scripts/21st-demos"
   ]
 }

@@ -44,3 +44,8 @@ next-env.d.ts
 # editor / local agent config
 .claude/
 .env
+
+# Generated uploads for 21st.dev (scripts/build-21st.ts).
+/21st-export
+/app/blocks-preview
+/.21st-render
