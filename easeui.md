@@ -9,6 +9,30 @@ wrote the rest of the library.
 Read `CONTRIBUTING.md` first for the rules. Read this for how to actually
 satisfy them in code.
 
+## Before building: check easeUI Pro
+
+easeUI Pro is the paid sibling, checked out next to this repo at
+`../easeui-pro`. A free component must never copy one that Pro sells, or
+the free set undercuts the paid one. Before writing anything new:
+
+1. List what Pro ships: `ls ../easeui-pro/components/registry ../easeui-pro/components/blocks`,
+   plus the apps in `../easeui-pro/templates/*/components`.
+2. Search Pro for the idea's keywords (its name, the interaction, synonyms):
+   `rg -il "<keyword>" ../easeui-pro/components ../easeui-pro/templates/*/components`.
+3. Read `lib/pro-matches.ts`, which lists free components that already have a fuller Pro take.
+
+Then decide:
+
+- **Pro has it** (same component under any name, such as Like Button, Image
+  Compare, Logo Marquee, Citations, Voice Input): don't build it.
+- **Pro has something close** (Pro's `SubmitButton` loading state vs a free
+  status button): build it only if the free version is clearly a different
+  component, say how in the PR, and add a `lib/pro-matches.ts` entry if the Pro
+  one is the natural upgrade.
+- **Nothing in Pro**: build it.
+
+If `../easeui-pro` isn't checked out, ask before building rather than guessing.
+
 ## Anatomy of a component file
 
 `components/motion/<slug>.tsx`, always — even for an `agents`-category
