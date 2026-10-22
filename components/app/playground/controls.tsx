@@ -9,7 +9,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/motion/select";
-import type { ControlDef, ControlValue, Values } from "./core";
+import { cssBezier, parseBezier } from "./bezier";
+import { type ControlDef, type ControlValue, num, type Values } from "./core";
+import { CurveEditor } from "./curve-editor";
 
 /** Decimal places implied by a step, such as 0.05 giving 2. */
 const decimalsOf = (step: number) => (String(step).split(".")[1] ?? "").length;
@@ -43,15 +45,41 @@ export function Controls({
   controls,
   values,
   onChange,
+  replayKey,
 }: {
   controls: ControlDef[];
   values: Values;
   onChange: (key: string, value: ControlValue) => void;
+  /** Passed to the curve editor so its trace dot replays with the preview. */
+  replayKey: number;
 }) {
   return (
     <div className="flex flex-col gap-6">
       {controls.map((control) => {
         const raw = values[control.key];
+
+        if (control.kind === "curve") {
+          const current = typeof raw === "string" ? raw : (control.presets[0]?.value ?? "");
+          const bezier = parseBezier(current);
+          const duration = control.durationKey ? num(values, control.durationKey, 0.3) : 0.3;
+          return (
+            <Field
+              key={control.key}
+              label={control.label}
+              readout={bezier ? cssBezier(bezier) : undefined}
+              hint={control.hint}
+            >
+              <CurveEditor
+                label={control.label}
+                value={current}
+                onChange={(next) => onChange(control.key, next)}
+                presets={control.presets}
+                duration={duration}
+                replayKey={replayKey}
+              />
+            </Field>
+          );
+        }
 
         if (control.kind === "select") {
           const current = typeof raw === "string" ? raw : control.options[0]?.value;

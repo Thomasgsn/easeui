@@ -16,9 +16,13 @@ changes to a component's API are marked **Breaking**.
 - 21st.dev export scripts. `scripts/build-21st.ts` turns seven picks (Rating, Tag Input, Morphing Search, Hold to Confirm, Expandable Tabs, Stepper, Number Ticker) into self-contained files with the motion tokens inlined and colors mapped to the stock shadcn theme.
 - `scripts/build-21st-blocks.ts` bundles six blocks (Agent Run, Onboarding Flow, Revenue Dashboard, Account Settings, Sign In With Code, Mobile App Shell) into single files, inlining every free component each one uses.
 - **Reasoning Disclosure** (agents). A model's reasoning that shimmers "Thinking" while it streams, stays pinned to its newest line, and folds into "Thought for 8s" once the answer starts. It times itself or takes a `duration`, and a message loaded from history starts folded.
+- Playground curve editor. The Easing tab now has a draggable cubic-bezier editor with presets, keyboard nudging and exact inputs, a lane that races your curve against a known one, and code in Motion, CSS, Tailwind and GSAP.
+- Playground share links. The URL keeps the current settings, and a link button copies it, so a tuned curve opens exactly as it was shared.
 
 ### Changed
 
+- Site header: the GitHub button shows the live star count next to the icon instead of a "Star" label.
+- Playground: preview and code sit beside a sticky controls column on wide screens, with a reset button.
 - Stepper: every step now takes an equal share of the row, the last one included, so labels stay centered under their circles.
 
 ## [0.1.0] - 2026-10-02

@@ -84,7 +84,7 @@ export function SiteHeader({ githubStarCount }: { githubStarCount: number | null
         <div className="ml-auto flex items-center gap-1.5">
           {pathname === "/" ? null : <SiteSearch className="w-9 justify-center px-0 sm:w-48 sm:justify-start sm:px-3" />}
           <ProBadge className="hidden sm:inline-flex" />
-          {/* A labelled pill rather than a bare icon, so a visitor sees they can star the repo. */}
+          {/* Icon plus the live count, so a visitor sees the repo is starrable without a label. */}
           <PressLink
             href={GITHUB_URL}
             target="_blank"
@@ -96,7 +96,6 @@ export function SiteHeader({ githubStarCount }: { githubStarCount: number | null
             )}
           >
             <GithubIcon className="h-4 w-4" />
-            <span className="hidden sm:inline">Star</span>
             {stars ? (
               <span className="hidden tabular-nums text-muted-foreground sm:inline">{stars}</span>
             ) : null}

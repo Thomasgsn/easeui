@@ -2,8 +2,8 @@ import { GITHUB_REPO } from "@/lib/site";
 
 const GITHUB_REPO_API_URL = `https://api.github.com/repos/${GITHUB_REPO}`;
 
-/** Below this, the count reads as evidence against the project rather than social proof — hide it instead. Raise it as the repo grows. */
-const MIN_DISPLAYED_STARS = 50;
+/** Below this, the count is hidden. Raise it if a low count starts reading as evidence against the project. */
+const MIN_DISPLAYED_STARS = 1;
 
 export async function getGithubStarCount(): Promise<number | null> {
   try {

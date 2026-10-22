@@ -25,7 +25,25 @@ export type ControlDef =
       label: string;
       hint?: string;
       options: { label: string; value: string }[];
+    }
+  | {
+      /** A draggable cubic-bezier editor. The value is "x1,y1,x2,y2". */
+      kind: "curve";
+      key: string;
+      label: string;
+      hint?: string;
+      /** Named curves shown as one-tap chips under the editor. */
+      presets: { label: string; value: string }[];
+      /** Control that holds the duration, so the editor's trace dot runs in time with the preview. */
+      durationKey?: string;
     };
+
+/** One copyable version of the generated code, such as Motion or CSS. */
+export interface Snippet {
+  label: string;
+  lang: "tsx" | "css" | "js";
+  code: string;
+}
 
 /**
  * One interface moment in the playground (easing, press, popover...). Adding one
@@ -41,6 +59,8 @@ export interface PlaygroundItem {
   Preview: FC<{ values: Values; replayKey: number }>;
   /** Copy-paste `motion/react` snippet for the current values. */
   toCode: (values: Values) => string;
+  /** The same motion for other stacks, shown as extra tabs after Motion. */
+  moreFormats?: (values: Values) => Snippet[];
 }
 
 /** Read a numeric control value with a fallback. */
