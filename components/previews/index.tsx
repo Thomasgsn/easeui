@@ -163,6 +163,9 @@ export const previews: Record<string, ComponentType> = {
   "agents/tool-chip": dynamic(() =>
     import("./agents/tool-chip.preview").then((m) => m.ToolChipPreview),
   ),
+  "agents/reasoning-disclosure": dynamic(() =>
+    import("./agents/reasoning-disclosure.preview").then((m) => m.ReasoningDisclosurePreview),
+  ),
 };
 
 export function getPreview(category: string, slug: string) {

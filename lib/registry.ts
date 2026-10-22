@@ -544,6 +544,16 @@ export const catalog: CategoryEntry[] = [
         launchedAt: "2026-09-15",
         keywords: ["tool chip", "agent tool", "tool call status"],
       },
+      {
+        slug: "reasoning-disclosure",
+        name: "Reasoning Disclosure",
+        description:
+          "A model's reasoning, shimmering \"Thinking\" while it streams and folding into \"Thought for 8s\" once the answer starts. Reopen it any time.",
+        file: "components/motion/reasoning-disclosure.tsx",
+        badge: "new",
+        launchedAt: "2026-10-21",
+        keywords: ["ai reasoning", "thinking indicator", "chain of thought", "thought for", "collapsible reasoning"],
+      },
     ],
   },
 ];

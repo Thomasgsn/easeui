@@ -62,6 +62,7 @@ const COMPONENT_DATES: Readonly<Record<string, ComponentDates>> = {
   "agents/tool-approval": { publishedAt: "2026-09-14", updatedAt: "2026-09-14" },
   "agents/flowchart": { publishedAt: "2026-09-15", updatedAt: "2026-09-15" },
   "agents/tool-chip": { publishedAt: "2026-09-15", updatedAt: "2026-09-15" },
+  "agents/reasoning-disclosure": { publishedAt: "2026-10-21", updatedAt: "2026-10-21" },
 };
 
 export function componentDates(category: string, slug: string): ComponentDates {

@@ -36,6 +36,7 @@ Quick, quiet motion you install as source files with the shadcn CLI.</p>
 
 - [Why easeUI](#why-easeui)
 - [What's inside](#whats-inside)
+- [What's new](#whats-new)
 - [Getting started](#getting-started)
 - [Use it with your coding agent](#use-it-with-your-coding-agent)
 - [easeUI Pro](#easeui-pro)
@@ -60,9 +61,19 @@ Two categories, both free and MIT licensed.
 | Category | What you get |
 | --- | --- |
 | **[Components](https://easeui.dev/components/motion)** | Buttons, inputs and overlays, plus feedback like toasts and alerts. Includes a command palette, OTP input, number ticker, tabs, drawer, stepper, rating, tag input and avatar group. |
-| **[Agents](https://easeui.dev/components/agents)** | Pieces for AI interfaces. A message bubble, streaming text and responses, loading states, a prompt input, tool approval and a task list. |
+| **[Agents](https://easeui.dev/components/agents)** | Pieces for AI interfaces. A message bubble, streaming text and responses, a reasoning disclosure, loading states, a prompt input, tool approval and a task list. |
 
 Every component page has a live preview, the full source, install steps and an API reference. The site always has the current list, so this file doesn't keep one.
+
+## What's new
+
+New components land every few days. The latest:
+
+| Component | What it does |
+| --- | --- |
+| **[Reasoning Disclosure](https://easeui.dev/components/agents/reasoning-disclosure)** | Shimmers "Thinking" while a model reasons, then folds into "Thought for 8s" once it answers. |
+
+Every change, release by release, is in [CHANGELOG.md](CHANGELOG.md).
 
 ## Getting started
 
