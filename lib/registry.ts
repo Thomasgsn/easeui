@@ -102,6 +102,35 @@ export const catalog: CategoryEntry[] = [
         keywords: ["theme toggle", "dark mode toggle", "view transition"],
       },
       {
+        slug: "color-picker",
+        name: "Color Picker",
+        description:
+          "Opaque color picker with a draggable color field, native sliders, HEX input, and preset swatches. Supports controlled values and forms.",
+        file: "components/motion/color-picker.tsx",
+        usageFile: "components/previews/motion/color-picker/controlled.tsx",
+        badge: "new",
+        launchedAt: "2026-10-28",
+        keywords: ["react color picker", "hex color input", "color swatches", "accessible color picker"],
+        examples: [
+          {
+            slug: "controlled",
+            name: "Controlled",
+            description: "Pass value and onValueChange to update a preview as the color changes. Use the color field with a pointer, or adjust Hue, Saturation and Brightness with arrow keys, Home and End. Only opaque #RGB and #RRGGBB colors are supported. HEX edits commit on Enter or blur, invalid edits revert, and Escape cancels an edit. Add disabled to disable every control, or pass swatches={[]} to hide presets. Repeated adjustments have no animation; preset presses respect reduced motion.",
+            file: "components/motion/color-picker.tsx",
+            previewKey: "motion/color-picker-controlled",
+            previewFile: "components/previews/motion/color-picker/controlled.tsx",
+          },
+          {
+            slug: "form",
+            name: "Form",
+            description: "Use defaultValue and name for an uncontrolled form field. FormData receives a lowercase #RRGGBB value. Reset restores the default without calling onValueChange. Supply swatches to choose the presets; invalid colors and duplicates are ignored. Disabled pickers are excluded from form submission.",
+            file: "components/motion/color-picker.tsx",
+            previewKey: "motion/color-picker-form",
+            previewFile: "components/previews/motion/color-picker/form.tsx",
+          },
+        ],
+      },
+      {
         slug: "range-slider",
         name: "Range Slider",
         description:
