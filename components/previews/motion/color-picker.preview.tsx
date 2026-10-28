@@ -1,20 +1,18 @@
 "use client";
 
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/motion/tabs";
-import { ColorPickerControlledPreview } from "./color-picker/controlled";
-import { ColorPickerFormPreview } from "./color-picker/form";
+import { useState } from "react";
+import { ColorPicker } from "@/components/motion/color-picker";
 
 export function ColorPickerPreview() {
+  const [color, setColor] = useState("#6366f1");
+
   return (
-    <Tabs defaultValue="controlled" className="w-full">
-      <div className="mb-6 flex justify-center">
-        <TabsList>
-          <TabsTrigger value="controlled">Controlled</TabsTrigger>
-          <TabsTrigger value="form">Form</TabsTrigger>
-        </TabsList>
+    <div className="flex w-full flex-wrap items-center justify-center gap-10">
+      <div className="flex flex-col items-center gap-3">
+        <div aria-hidden="true" className="flex size-28 items-center justify-center rounded-3xl" style={{ backgroundColor: color }} />
+        <output className="font-mono text-xs text-muted-foreground">{color}</output>
       </div>
-      <TabsContent value="controlled"><ColorPickerControlledPreview /></TabsContent>
-      <TabsContent value="form"><ColorPickerFormPreview /></TabsContent>
-    </Tabs>
+      <ColorPicker label="Accent color" value={color} onValueChange={setColor} />
+    </div>
   );
 }

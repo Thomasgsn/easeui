@@ -7,12 +7,6 @@ export const previews: Record<string, ComponentType> = {
   "motion/color-picker": dynamic(() =>
     import("./motion/color-picker.preview").then((m) => m.ColorPickerPreview),
   ),
-  "motion/color-picker-controlled": dynamic(() =>
-    import("./motion/color-picker/controlled").then((m) => m.ColorPickerControlledPreview),
-  ),
-  "motion/color-picker-form": dynamic(() =>
-    import("./motion/color-picker/form").then((m) => m.ColorPickerFormPreview),
-  ),
   "motion/button": dynamic(() =>
     import("./motion/button.preview").then((m) => m.ButtonPreview),
   ),

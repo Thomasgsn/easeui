@@ -89,12 +89,15 @@ export function ColorPicker({
   const controlled = value === undefined ? null : normalize(value) ?? DEFAULT;
   const current = controlled !== null && controlled !== model.hex
     ? { hex: controlled, hsv: fromHex(controlled) } : model;
-  // Retain hue at zero saturation and black, where HEX cannot encode it.
-  if (current !== model) setModel(current);
   const { hex, hsv } = current;
   const [draft, setDraft] = useState(hex);
   const [pointerPress, setPointerPress] = useState(false);
-  useEffect(() => setDraft(hex), [hex]);
+  
+  // Retain hue at zero saturation and black, where HEX cannot encode it.
+  if (current !== model) {
+    setModel(current);
+    setDraft(hex);
+  }
 
   useEffect(() => {
     const form = inputRef.current?.form;
@@ -114,12 +117,14 @@ export function ColorPicker({
     if (disabled) return;
     const nextHex = toHex(next);
     setModel({ hex: nextHex, hsv: next });
+    // Sync in the input event: a passive update on every drag can cascade.
+    setDraft(nextHex);
     if (nextHex !== hex) onValueChange?.(nextHex);
   };
   const commit = () => {
     const next = normalize(draft);
     if (next && next !== hex) update(fromHex(next));
-    setDraft(value === undefined ? next ?? hex : hex);
+    else setDraft(hex);
   };
   const move = (event: PointerEvent<HTMLDivElement>) => {
     if (disabled) return;
